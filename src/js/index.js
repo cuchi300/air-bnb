@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function iniciarApp() {
     busquedaFlexible();
-    menuFixed();
+    scrollBody();
 }
 
 function busquedaFlexible() {
@@ -30,5 +30,22 @@ function busquedaFlexible() {
         div.appendChild(input);
         div.appendChild(boton);
     })
+
+}
+
+function scrollBody() {
+    document.addEventListener('scroll', function() {
+        const seccionAnfitrion = document.querySelector('.anfitrion');
+        const anfitrionHeading = document.querySelector('.anfitrion__heading');
+        const anfitrionTexto = document.querySelector('.anfitrion__texto');
+        const anfitrionEnlace = document.querySelector('.anfitrion__enlace');
+
+        if(seccionAnfitrion.getBoundingClientRect().top < 300){
+            anfitrionHeading.classList.add('mostrar-heading');
+            anfitrionTexto.classList.add('mostrar-texto');
+            anfitrionEnlace.classList.add('mostrar-enlace');
+        }
+    })
+    
 
 }
